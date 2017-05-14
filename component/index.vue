@@ -1,37 +1,94 @@
 <template>
 	<div>
-		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">首页</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-chat">
-				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
-				<span class="mui-tab-label">物流</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-contact">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">购物车</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-map">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">我的淘宝</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-map">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">更多</span>
-			</a>
-		</nav>
+		<footer>
+			<ul>
+				<li>
+					<i class="icon icon-index"></i>
+					<span>首页</span>
+				</li>
+				<li>
+					<i class="icon icon-wuliu"></i>
+					<span>物流</span>
+				</li>
+				<li>
+					<i class="icon icon-buycar"></i>
+					<span>购物车</span>
+				</li>
+				<li>
+					<i class="icon icon-mytaobao"></i>
+					<span>我的淘宝</span>
+				</li>
+				<li>
+					<i class="icon icon-more"></i>
+					<span>更多</span>
+				</li>
+			</ul>
+		</footer>
 	</div>
 </template>
 
 <script>
 	export default {
+		data:function(){
+			return {
+
+			}
+		},
 		mounted:function(){
-			console.log(666)
+			$('footer').on('click','li',function(){
+				console.log(this)
+				$(this).css('color','red').siblings('color','#5D656B')
+			})
+			
 		}
 	}
 </script>
 
-<style>
+<style scoped>
+	footer{
+		border-top: 1px solid #eee;
+		padding-top: 5px;
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+	}
+	footer ul{
+		width: 100%;
+		display: flex;
+	}footer ul li{
+		text-align: center;
+		width:20%
+	}
+	.icon{margin-left: 27px;}
+	.icon-index{
+		width: 24px;
+		height: 24px;
+		display: block;
+		background: url(../image/icon/icon-index.png) repeat left top;
+	}
+	
+	.icon-wuliu{
+		width: 24px;
+		height: 24px;
+		display: block;
+		background: url(../image/icon/icon-wuliu.png) repeat left top;
+	}
+	.icon-buycar{
+		width: 24px;
+		height: 24px;
+		display: block;
+		background: url(../image/icon/icon-buycar.png) repeat left top;
+	}
+	.icon-mytaobao{
+		width: 22px;
+		height: 22px;
+		display: block;
+		background: url(../image/icon/icon-mytaobao.png) repeat left top;
+	}
+	.icon-more{
+		width: 24px;
+		height: 24px;
+		display: block;
+		background: url(../image/icon/icon-more.png) repeat left top;
+	}
 </style>

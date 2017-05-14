@@ -1,0 +1,7 @@
+html,body,h1,h2,h3,h4,h5,ul,li{
+	margin: 0;
+	padding: 0;
+}
+a{text-decoration: none;}
+ul,li{list-style: none;}
+html,body{width:100%;color:#5D656B;font-size: 12px;}

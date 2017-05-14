@@ -22,7 +22,10 @@ module.exports={
 		},{
 			test:/\.vue$/,
 			loader:'vue-loader'
-		},]
+		},{
+			test:/\.(png|jpg|gif|jpeg)$/,
+			loader:'url-loader'
+		}]
 	},
 	devServer:{
 		contentBase:'./mainArea',

@@ -1,6 +1,9 @@
 //引入Vue
 import Vue from 'vue';
 
+//引入jQ
+import $ from 'jquery';
+window.$=$;
 //引入路由
 import VueRouter from 'vue-router';
 
@@ -8,8 +11,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 //引入mui.css样式
-require('./mainArea/mui/css/mui.css');
-
+//require('./mainArea/mui/css/mui.css');
+require('./dist/css/base.css')
 //引入vue模块
 var index = require('./component/index.vue');
 
@@ -23,6 +26,11 @@ new Vue({
 	el:'#taobao',
 	
 	template:`<div><router-view></router-view></div>`,
+	
+	mounted:function(){
+	
+		window.location.href="http://localhost:52061/#/index"
+	},
 	//需要注入
 	router
 })
