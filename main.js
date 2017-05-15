@@ -14,12 +14,22 @@ Vue.use(VueRouter);
 //require('./mainArea/mui/css/mui.css');
 require('./dist/css/base.css')
 //引入vue模块
+var main = require('./component/main.vue');
 var index = require('./component/index.vue');
+var goodsSearch = require('./component/goodsSearch.vue');
 
 var router = new VueRouter({
 	routes:[{
-		path:'/index',
-		component:index
+		path:'/main',
+		component:main,
+		children:[{
+			path:'index',
+			component:index
+		}]
+	},{
+		path:'/goodsSearch',
+		component:goodsSearch,
+		
 	}]
 })
 new Vue({
@@ -29,7 +39,7 @@ new Vue({
 	
 	mounted:function(){
 	
-		window.location.href="http://localhost:52061/#/index"
+		window.location.href="/#/main/index"
 	},
 	//需要注入
 	router

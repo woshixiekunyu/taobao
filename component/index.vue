@@ -1,29 +1,21 @@
 <template>
 	<div>
-		<footer>
-			<ul>
-				<li>
-					<i class="icon icon-index"></i>
-					<span>首页</span>
-				</li>
-				<li>
-					<i class="icon icon-wuliu"></i>
-					<span>物流</span>
-				</li>
-				<li>
-					<i class="icon icon-buycar"></i>
-					<span>购物车</span>
-				</li>
-				<li>
-					<i class="icon icon-mytaobao"></i>
-					<span>我的淘宝</span>
-				</li>
-				<li>
-					<i class="icon icon-more"></i>
-					<span>更多</span>
-				</li>
-			</ul>
-		</footer>
+		<header>
+			<div>
+				<i class="icon icon-saoyisao"></i>
+				<span>扫一扫</span>
+			</div>
+			<div>
+				<i class="icon icon-search"></i>
+				<span @click="goodsSearch()">长袖男装</span>
+				<i class="icon icon-camera"></i>
+			</div>
+			<div>
+				<i class="icon icon-news"></i>
+				<span v-text="num" class="num"></span>
+				<span>消息</span>
+			</div>
+		</header>
 	</div>
 </template>
 
@@ -31,64 +23,75 @@
 	export default {
 		data:function(){
 			return {
-
+				num:0
+			}
+		},methods:{
+			goodsSearch:function(){
+				window.location.href="#/goodsSearch"
 			}
 		},
 		mounted:function(){
-			$('footer').on('click','li',function(){
-				console.log(this)
-				$(this).css('color','red').siblings('color','#5D656B')
-			})
 			
 		}
 	}
 </script>
 
 <style scoped>
-	footer{
-		border-top: 1px solid #eee;
-		padding-top: 5px;
+	header{
+
 		width: 100%;
+		color: #fff;
+		height: 0.38rem;
 		position: fixed;
-		bottom: 0;
-	}
-	footer ul{
-		width: 100%;
+		top: 0;
 		display: flex;
-	}footer ul li{
-		text-align: center;
-		width:20%
+		padding: 3px 0;
 	}
-	.icon{margin-left: 27px;}
-	.icon-index{
-		width: 24px;
-		height: 24px;
-		display: block;
-		background: url(../image/icon/icon-index.png) repeat left top;
+	header>div{
+		width: 15%;
+		text-align: center;
 	}
 	
-	.icon-wuliu{
+	header>div:nth-child(2){
+		width: 70%;
+		border-bottom: 1px solid #fff;
+		display: flex;
+		height: 25px;
+		margin-top: 8px;
+		padding-top: 5px;
+	}
+	header>div>i{
+		display: block;
 		width: 24px;
 		height: 24px;
-		display: block;
-		background: url(../image/icon/icon-wuliu.png) repeat left top;
+		
 	}
-	.icon-buycar{
-		width: 24px;
-		height: 24px;
-		display: block;
-		background: url(../image/icon/icon-buycar.png) repeat left top;
+	header>div:nth-child(1)>i{
+		background: url('image/icon/icon-saoyisao.png') no-repeat;
+		margin: 0 auto;
 	}
-	.icon-mytaobao{
-		width: 22px;
-		height: 22px;
-		display: block;
-		background: url(../image/icon/icon-mytaobao.png) repeat left top;
+	header>div:nth-child(2)>i:nth-child(1){
+		background: url('image/icon/icon-search.png') no-repeat;
+		width: 10%;
 	}
-	.icon-more{
-		width: 24px;
-		height: 24px;
+	header>div:nth-child(2)>span{
 		display: block;
-		background: url(../image/icon/icon-more.png) repeat left top;
+		width: 80%;
+		text-align: left;
+	}
+	header>div:nth-child(2)>i:nth-child(3){
+		background: url('image/icon/icon-camera.png') no-repeat;
+		width: 10%;
+	}
+	header>div:nth-child(3)>i{
+		background: url('image/icon/icon-news.png') no-repeat;
+		margin: 0 auto;
+	}
+	header>div:nth-child(3)>.num{
+		position: absolute;
+		right: 0.1rem;
+		top: 0;
+		color:#000;
+		background-color: #red;
 	}
 </style>
