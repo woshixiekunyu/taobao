@@ -40,6 +40,8 @@
 		},
 		mounted:function(){
 			var self = this;
+			
+			
 			$('footer').on('click','li',function(){
 				var cla = $(this).children('i')[0]._prevClass.slice(5,);
 				var fcla = cla +'-on';
@@ -52,11 +54,13 @@
 					
 //					console.log($(this).siblings().children('i')[i]._prevClass.slice(5,))
 					arr.push($(this).siblings().children('i')[i]._prevClass.slice(5,));
-					console.log($(this).siblings().children('i')[i])
+//					console.log($(this).siblings().children('i')[i])
 					self.oldsrc = 'url(./image/icon/'+arr[i]+'.png)'
 					$($(this).siblings().children('i')[i]).css('backgroundImage',self.oldsrc)
 				}
-				console.log(arr)
+				
+				
+//				console.log(arr)
 			})
 			
 		}

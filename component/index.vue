@@ -11,8 +11,10 @@
 				<i class="icon icon-camera"></i>
 			</div>
 			<div>
-				<i class="icon icon-news"></i>
-				<span v-text="num" class="num"></span>
+				<i class="icon icon-news">
+					<span class="num">{{num}}</span>
+				</i>
+				
 				<span>消息</span>
 			</div>
 		</header>
@@ -23,7 +25,7 @@
 	export default {
 		data:function(){
 			return {
-				num:0
+				num:8
 			}
 		},methods:{
 			goodsSearch:function(){
@@ -31,7 +33,17 @@
 			}
 		},
 		mounted:function(){
-			
+			if(window.location.hash == '#/main/index'){
+				console.log($('footer ul').children('li').eq(0).children('i'))
+				$('footer ul').children('li').eq(0).children('i').css('backgroundImage','url(./image/icon/icon-index-on.png)')
+			}
+			if(this.num>9){
+				this.num = '...'
+			}else if(this.num<=''){
+				this.num = ''
+			}else{
+				$('.num').css('width',0).css('height',0).css('right','0.03rem')
+			}
 		}
 	}
 </script>
@@ -85,13 +97,20 @@
 	}
 	header>div:nth-child(3)>i{
 		background: url('image/icon/icon-news.png') no-repeat;
+		position: relative;
 		margin: 0 auto;
 	}
-	header>div:nth-child(3)>.num{
+	header>div:nth-child(3)>i>.num{
 		position: absolute;
-		right: 0.1rem;
+		right: 0;
 		top: 0;
-		color:#000;
-		background-color: #red;
+		color:#fff;
+		line-height: 10px;
+		text-align: left;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		background: #f00;
+		border-radius: 50%;
 	}
 </style>
