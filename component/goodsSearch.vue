@@ -8,6 +8,17 @@
 			</div>
 			<span class="searchGoods">搜索</span>
 		</header>
+		<nav>
+			<!--一个数组做法-->
+			<!--<span :class="{page:pagearr[page][0]}" @click="pages(0)">全部</span>
+			<span :class="{page:pagearr[page][1]}" @click="pages(1)">天猫</span>
+			<span :class="{page:pagearr[page][2]}" @click="pages(2)">店铺</span>-->
+			<!--//条件数组做法-->
+			<span :class="{page:pagearr[0]}" @click="pages(0)">全部</span>
+			<span :class="{page:pagearr[1]}" @click="pages(1)">天猫</span>
+			<span :class="{page:pagearr[2]}" @click="pages(2)">店铺</span>
+		</nav>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -16,21 +27,45 @@
 		data:function(){
 			return {
 				goodsName:'',
-				tips:''
+				tips:'',
+				//一个数组做法
+//				pagearr:[[1,0,0],[0,1,0],[0,0,1]],
+//				page:0
+				//条件数组做法
+				pagearr:[1,0,0],
+
 			}
-		},methods:{
+		},
+		methods:{
 			back:function(){
-				window.history.back()
+				window.location.href="#/main/index"
+			},
+			pages(page){
+				if(page === 0){
+					this.pagearr=[1,0,0];
+					window.location.href="#/goodsSearch/searchAll"
+				}else if(page === 1){
+					this.pagearr=[0,1,0];
+					window.location.href="#/goodsSearch/searchTianmao"
+				}else{
+					this.pagearr=[0,0,1];
+					window.location.href="#/goodsSearch/searchShop"
+				}
+				//数组做法
+//				this.pagearr=[[1,0,0],[0,1,0],[0,0,1]]
+//				this.page = page
+				
 			}
 		},
 		mounted:function(){
-			$('#goodsName').attr('placeholder',this.tips)
+			$('#goodsName').attr('placeholder',this.tips) 
 		}
 	}
 </script>
 
 <style scoped>
 	header{
+		background-color: #fff;
 		padding: 0.1rem;
 		display: flex;
 		height: 0.2rem;
@@ -72,4 +107,18 @@
 		height: 20px;
 		background: #FF0000;
 	}
+	nav{display: flex;}
+	nav>span{
+		display: block;
+		width: 33.3%;
+		text-align: center;
+		line-height: 40px;
+	}
+	nav>.page{
+		color:red;
+		border-bottom: 1px solid red;
+		
+	}
+	
+	
 </style>

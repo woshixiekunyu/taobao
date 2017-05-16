@@ -78,6 +78,7 @@
 		z-index: -10;
 	}
 	footer{
+		background-color: #fff;
 		border-top: 1px solid #eee;
 		padding-top: 5px;
 		width: 100%;

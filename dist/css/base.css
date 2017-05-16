@@ -1,11 +1,11 @@
-html,body,h1,h2,h3,h4,h5,ul,li{
+html,body,h1,h2,h3,h4,h5,h6,ul,li{
 	margin: 0;
 	padding: 0;
 }
 a{text-decoration: none;}
 i{font-style: none;}
 ul,li{list-style: none;}
-html,body{width:100%;color:#5D656B;}
+html,body{width:100%;color:#5D656B;background-color: #eee;}
 html{
 	font-size: 625%;
 }

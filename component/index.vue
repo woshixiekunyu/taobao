@@ -8,7 +8,7 @@
 			</div>
 			<div>
 				<i class="icon icon-search"></i>
-				<span @click="goodsSearch()">长袖男装</span>
+				<span @click="goodsSearch()">寻找宝贝</span>
 				<i class="icon icon-camera"></i>
 			</div>
 			<div>
@@ -20,63 +20,92 @@
 			</div>
 		</header>
 		
-		<!-- Swiper -->
-		<div class="swiper-nav">
-			<div class="swiper">
-				<ul>
-					<li><img class="slide-img" src="image/swiper-nav0.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav1.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav2.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav3.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav4.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav5.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav6.jpg"/></li>
-					<li><img class="slide-img" src="image/swiper-nav7.jpg"/></li>
-				</ul>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav0.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav1.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav2.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav3.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav4.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav5.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav6.jpg" /></div>
+				<div class="swiper-slide"><img class="swiper-img" src="image/swiper-nav7.jpg" /></div>
 			</div>
 			<!-- Add Pagination -->
-			<div class="swiper-page"></div>
+			<div class="swiper-pagination"></div>
 		</div>
+		
+		
+		<main>
+			<nav>
+				<ul>
+					<li>
+						<img class="nav-img" src="image/tianmao.png"/>
+						<span>天猫</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/juhuasuan.png"/>
+						<span>聚划算</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/tianguo.png"/>
+						<span>天猫国际</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/waimai.png"/>
+						<span>外卖</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/tianmark.png"/>
+						<span>天猫超市</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/chongzhi.png"/>
+						<span>充值中心</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/feilv.png"/>
+						<span>飞猪旅行</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/getjinbi.png"/>
+						<span>领金币</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/paimai.png"/>
+						<span>拍卖</span>
+					</li>
+					<li>
+						<img class="nav-img" src="image/fenlei.png"/>
+						<span>分类</span>
+					</li>
+				</ul>
+			</nav>
+			<div class="toutiao">
+				<span><img src="image/toutiao.png"/></span>
+				<div class="hotdisc">
+					
+				</div>
+			</div>
+		</main>
 	</div>
 </template>
 
-<script>export default {
+<script>
+	require('../dist/js/swiper.js')
+	export default {
 	data: function() {
 		return {
 			num: 8,
-			$idx:'',
-			$len:'',
-			$width:''
+			color:'red'
 		}
 	},
 	methods: {
 		goodsSearch: function() {
 			window.location.href = "#/goodsSearch"
 		},
-		swipering:function(){
-			var self = this;
-			//设置图片宽度
-			this.$width = $('body').innerWidth();
-			
-			var ulist = $('.swiper').children('ul')
-			//图片数量
-			this.$len = ulist.children().length;
-			//图片轮播
-//			console.log(this.$width)
-			this.$idx = 0;
-			var timer = setInterval(function(){
-				self.$idx++;
-				if(self.$idx > self.$len){
-					ulist.css('left',0)
-					self.$idx=1;
-				}else if(self.$idx < 0){
-					self.$idx = self.$len-1
-				}
-//				console.log(self.$idx)
-//				console.log(self.$width)
-				ulist.animate({'left':-self.$width*self.$idx})
-			},2000)
-		}
+
+		
 	},
 	mounted: function() {
 		//默认首页高亮
@@ -93,35 +122,28 @@
 		} else {
 			$('.num').css('width', 0).css('height', 0).css('right', '0.03rem')
 		}
+		
+		var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				//自动播放
+				autoplay : 1000,
+				//无缝播放
+				loop : true,
+				//添加数量
+				loopAdditionalSlides : 1,
+				
+				//swiper手动改滑动之后，swiper可以继续自动播放
+				autoplayDisableOnInteraction : false,
+		});
 
-		//轮播图区域
-		this.$width = $('body').innerWidth();
-		//设置图片宽度
-		$('.slide-img').css('width',this.$width);
-		//ul列表
-		var ulist = $('.swiper').children('ul');
-		
-		//图片数量
-		this.$len = ulist.children().length;
-//		console.log($len)
-		
-		
-		
-		this.swipering();
-		//获取第一张图片的src
-		var $cloneAttr = ulist.children().eq(0).children().eq(0).attr('src')
-		//创建图片并复制第一张图片的路径
-		var $cloneImg = $('<img/>').attr('src',$cloneAttr).css('width',this.$width)
-		
-		$('<li/>').append($cloneImg).appendTo(ulist)
-//		console.log(ulist.children())
-		
-		
 		
 	}
-}</script>
+}
+</script>
 
-<style scoped>header {
+<style scoped>
+header {
 	width: 100%;
 	color: #fff;
 	height: 0.38rem;
@@ -164,7 +186,7 @@ header>div:nth-child(2)>i:nth-child(1) {
 header>div:nth-child(2)>span {
 	display: block;
 	width: 80%;
-	text-align: left;
+	text-align: center;
 }
 
 header>div:nth-child(2)>i:nth-child(3) {
@@ -192,19 +214,45 @@ header>div:nth-child(3)>i>.num {
 	border-radius: 50%;
 
 }
-.swiper-nav{
-	width: 100%;
+.swiper-container{
 	margin-top: 0.44rem;
-	position: relative;
 }
-.swiper-nav ul{
+main>nav>ul{
+	background-color: #fff;
 	display: flex;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.swiper-nav img{
 	width: 100%;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	/*padding: 0 0.2rem;*/
+}
+main>nav>ul>li{
+	margin-top: 0.1rem;
+	text-align: center;
+	width: 20%;
+	/*margin-left: 0.15rem;*/
+}
+main>nav>ul>li:nth-child(1){
+	margin-left: 0;
+}
+main>nav>ul .nav-img{
+	width: 100%;
+}
+main>nav>ul>li>span{
+	display: block;
+	font-size:12px;
+	line-height: 20px;
+}
+main>.toutiao{background-color: #fff;}
+main>.toutiao>span{
+	display: block;
+	width: 0.8rem;
+	/*height: 0.4rem;*/
+	padding-top: 10px;
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+main>.toutiao>span img{
+	
+	width: 0.6rem;
 }
 </style>
