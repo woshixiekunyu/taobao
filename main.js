@@ -39,7 +39,7 @@ new Vue({
 	
 	mounted:function(){
 	
-		window.location.href="/#/main/index"
+		window.location.href="#/main/index"
 	},
 	//需要注入
 	router
