@@ -63,7 +63,6 @@ var searchShop = require('./component/searchShop.vue');
 //		}
 //	}
 //})
-
 var router = new VueRouter({
 	routes:[{
 		path:'/main',

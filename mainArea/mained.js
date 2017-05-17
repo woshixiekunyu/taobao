@@ -27502,14 +27502,6 @@ __webpack_require__(7);
 //import fs from 'fs';
 //var fs = require('fs')
 
-_jquery2.default.ajax({
-	url: 'https://www.taobao.com/',
-	type: 'GET',
-	dataType: 'json',
-	success: function success(data) {
-		console.log(data);
-	}
-});
 
 //创建连接数据库
 //console.log(mysql)

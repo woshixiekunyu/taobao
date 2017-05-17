@@ -9,6 +9,7 @@ module.exports={
 			vue:'vue/dist/vue.js'
 		}
 	},
+	
 	module:{
 		loaders:[{
 			test:/\.js$/,

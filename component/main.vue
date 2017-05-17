@@ -10,16 +10,16 @@
 					<span>首页</span>
 				</li>
 				<li>
-					<i class="icon icon-wuliu"></i>
-					<span>物流</span>
+					<i class="icon icon-xiangce"></i>
+					<span>相册</span>
 				</li>
 				<li>
-					<i class="icon icon-buycar"></i>
-					<span>购物车</span>
+					<i class="icon icon-liuyan"></i>
+					<span>留言区</span>
 				</li>
 				<li>
 					<i class="icon icon-mytaobao"></i>
-					<span>我的淘宝</span>
+					<span>我的</span>
 				</li>
 				<li>
 					<i class="icon icon-more"></i>
@@ -104,17 +104,17 @@
 		
 	}
 	
-	.icon-wuliu{
+	.icon-xiangce{
 		width: 24px;
 		height: 24px;
 		display: block;
-		background: url(image/icon/icon-wuliu.png) no-repeat left top;
+		background: url(image/icon/icon-xiangce.png) no-repeat left top;
 	}
-	.icon-buycar{
+	.icon-liuyan{
 		width: 24px;
 		height: 24px;
 		display: block;
-		background: url(image/icon/icon-buycar.png) no-repeat left top;
+		background: url(image/icon/icon-liuyan.png) no-repeat left top;
 	}
 	.icon-mytaobao{
 		width: 22px;
@@ -136,17 +136,17 @@
 		
 	}
 	
-	.icon-wuliu-on{
+	.icon-xiangce-on{
 		width: 24px;
 		height: 24px;
 		display: block;
-		background: url(image/icon/icon-wuliu-on.png) no-repeat left top;
+		background: url(image/icon/icon-xiangce-on.png) no-repeat left top;
 	}
-	.icon-buycar-on{
+	.icon-liuyan-on{
 		width: 24px;
 		height: 24px;
 		display: block;
-		background: url(image/icon/icon-buycar-on.png) no-repeat left top;
+		background: url(image/icon/icon-liuyan-on.png) no-repeat left top;
 	}
 	.icon-mytaobao-on{
 		width: 22px;

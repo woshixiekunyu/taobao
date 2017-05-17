@@ -8,7 +8,7 @@
 			</div>
 			<div>
 				<i class="icon icon-search"></i>
-				<span @click="goodsSearch()">寻找宝贝</span>
+				<span @click="goodsSearch()">足迹</span>
 				<i class="icon icon-camera"></i>
 			</div>
 			<div>
@@ -41,50 +41,53 @@
 				<ul>
 					<li>
 						<img class="nav-img" src="image/tianmao.png"/>
-						<span>天猫</span>
+						<span>你</span>
 					</li>
 					<li>
 						<img class="nav-img" src="image/juhuasuan.png"/>
-						<span>聚划算</span>
+						<span>我</span>
 					</li>
-					<li>
+					<!--<li>
 						<img class="nav-img" src="image/tianguo.png"/>
 						<span>天猫国际</span>
-					</li>
+					</li>-->
 					<li>
 						<img class="nav-img" src="image/waimai.png"/>
-						<span>外卖</span>
+						<span>日记</span>
 					</li>
 					<li>
 						<img class="nav-img" src="image/tianmark.png"/>
-						<span>天猫超市</span>
+						<span>问答</span>
 					</li>
 					<li>
 						<img class="nav-img" src="image/chongzhi.png"/>
-						<span>充值中心</span>
+						<span>悄悄话</span>
 					</li>
 					<li>
 						<img class="nav-img" src="image/feilv.png"/>
-						<span>飞猪旅行</span>
+						<span>签到</span>
 					</li>
 					<li>
 						<img class="nav-img" src="image/getjinbi.png"/>
-						<span>领金币</span>
+						<span>资产</span>
 					</li>
 					<li>
 						<img class="nav-img" src="image/paimai.png"/>
-						<span>拍卖</span>
+						<span>其他</span>
+						
 					</li>
-					<li>
+					<!--<li>
 						<img class="nav-img" src="image/fenlei.png"/>
 						<span>分类</span>
-					</li>
+					</li>-->
 				</ul>
 			</nav>
-			<div class="toutiao">
-				<span><img src="image/toutiao.png"/></span>
+			<div class="xindong">
+				<h2>心动区</h2>
 				<div class="hotdisc">
-					
+					<ul v-for="con in content">
+						<li>{{con.content}}</li>
+					</ul>
 				</div>
 			</div>
 		</main>
@@ -97,7 +100,8 @@
 	data: function() {
 		return {
 			num: 8,
-			color:'red'
+			color:'red',
+			content:''
 		}
 	},
 	methods: {
@@ -108,6 +112,7 @@
 		
 	},
 	mounted: function() {
+		var self = this;
 		//默认首页高亮
 		if(window.location.hash == '#/main/index') {
 			console.log($('footer ul').children('li').eq(0).children('i'))
@@ -136,8 +141,16 @@
 				//swiper手动改滑动之后，swiper可以继续自动播放
 				autoplayDisableOnInteraction : false,
 		});
-
 		
+		$.ajax({
+			url:'./link/data/getdoc.json',
+			type:'GET',
+			dataType:'json',
+			success:function(data){
+				console.log(data)
+				self.content = data
+			}
+		})
 	}
 }
 </script>
@@ -217,19 +230,23 @@ header>div:nth-child(3)>i>.num {
 .swiper-container{
 	margin-top: 0.44rem;
 }
-main>nav>ul{
+main>nav{
+	padding: 0 0.15rem;
 	background-color: #fff;
+}
+main>nav>ul{
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
 	margin: 0 auto;
-	/*padding: 0 0.2rem;*/
+	/*padding-left: 0.15rem;*/
+	/*margin-left: 0.15rem;*/
 }
 main>nav>ul>li{
 	margin-top: 0.1rem;
 	text-align: center;
-	width: 20%;
-	/*margin-left: 0.15rem;*/
+	width: 25%;
+	
 }
 main>nav>ul>li:nth-child(1){
 	margin-left: 0;
@@ -242,8 +259,16 @@ main>nav>ul>li>span{
 	font-size:12px;
 	line-height: 20px;
 }
-main>.toutiao{background-color: #fff;}
-main>.toutiao>span{
+main>.xindong{background-color: #fff;}
+main>.xindong h2{
+	line-height: 30px;
+	border-top: 1px solid orangered ;
+	box-shadow: 0 0 0.06rem #ffff00 inset;
+	
+	text-shadow: 0 0 10px #FF4500;
+	color: #FF0000;
+}
+main>.xindong>span{
 	display: block;
 	width: 0.8rem;
 	/*height: 0.4rem;*/
@@ -251,8 +276,5 @@ main>.toutiao>span{
 	text-align: center;
 	border-right: 1px solid #ccc;
 }
-main>.toutiao>span img{
-	
-	width: 0.6rem;
-}
+
 </style>
