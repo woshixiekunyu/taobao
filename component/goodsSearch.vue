@@ -66,10 +66,11 @@
 <style scoped>
 	header{
 		background-color: #fff;
-		padding: 0.1rem;
+		padding:  0.1rem;
 		display: flex;
 		height: 0.2rem;
 		font-size: 0.12rem;
+
 	}
 	header>.icon{
 		display: block;
@@ -101,13 +102,14 @@
 		color:#fff;
 		width: 12%;
 		margin-left: 10px;
+		margin-right: 20px;
 		text-align: center;
 		line-height: 20px;
 		border-radius: 10px;
 		height: 20px;
 		background: #FF0000;
 	}
-	nav{display: flex;}
+	nav{display: flex;margin-top: 0.4rem;}
 	nav>span{
 		display: block;
 		width: 33.3%;

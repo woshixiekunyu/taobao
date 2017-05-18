@@ -1,28 +1,28 @@
 <?php
 //	$username = isset($_GET['username']) ? $_GET['username'] : '';
 //	$gender = isset($_GET['gender']) ? $_GET['gender'] : '';
-	$msg = isset($_GET['msg']) ? $_GET['msg'] : '';
-	$title = isset($_GET['$title']) ? $_GET['$title'] : '';
-	$img = isset($_GET['$img']) ? $_GET['$img'] : '';
+	$content = isset($_POST['content']) ? $_POST['content'] : '';
+	$title = isset($_POST['title']) ? $_POST['title'] : '';
+//	$img = isset($_GET['$img']) ? $_GET['$img'] : '';
 
 
 //	// 获取客户端局域网ip
 //	$host_name = exec("hostname"); //获取主机名
 //	$host_ip = gethostbyname($host_name); //获取本机的局域网IP 
 
-
+	
 	// 获取前端发送的消息
 	$newMsg = array(
 //		'name'=>$username,
 //		'gender'=>$gender,
-		'content'=>$msg,
+		'content'=>$content,
 		'title'=>$title,
-		'img'=>img,
+//		'img'=>img,
 //		'ipfrom'=>$host_ip,
 //		'createtime'=>time()
 	);
-
-	$url = '../data/getdoc.json';
+	header('Access-Control-Allow-Origin:*');
+	$url = '../data/getliuyan.json';
 
 	// 1.打开文件
 	$file = fopen($url,'r');

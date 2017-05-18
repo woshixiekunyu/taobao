@@ -5,23 +5,23 @@
 		<router-view></router-view>
 		<footer>
 			<ul>
-				<li>
+				<li @click="index()">
 					<i class="icon icon-index"></i>
 					<span>首页</span>
 				</li>
-				<li>
+				<li @click="xiangce()">
 					<i class="icon icon-xiangce"></i>
 					<span>相册</span>
 				</li>
-				<li>
+				<li @click="liuyan()">
 					<i class="icon icon-liuyan"></i>
 					<span>留言区</span>
 				</li>
-				<li>
+				<li @click="my()">
 					<i class="icon icon-mytaobao"></i>
 					<span>我的</span>
 				</li>
-				<li>
+				<li @click="more()">
 					<i class="icon icon-more"></i>
 					<span>更多</span>
 				</li>
@@ -37,10 +37,31 @@
 				src:'',
 				oldsrc:''
 			}
+		},methods:{
+			index:function(){
+				window.location.href="#/main/index"
+			},
+			liuyan:function(){
+
+				window.location.href="#/main/liuyan"
+			},
+			my:function(){
+
+				window.location.href="#/main/my"
+			},
+			more:function(){
+
+				window.location.href="#/main/more"
+			},
+			xiangce:function(){
+
+				window.location.href="#/main/xiangce"
+			},
+			
 		},
 		mounted:function(){
 			var self = this;
-			
+
 			
 			$('footer').on('click','li',function(){
 				var cla = $(this).children('i')[0]._prevClass.slice(5,);
@@ -60,7 +81,7 @@
 				}
 				
 				
-//				console.log(arr)
+				
 			})
 			
 		}
@@ -75,7 +96,7 @@
 		height: 0.44rem;
 		/*background-color: red;*/
 		background: linear-gradient(90deg,#ff9000 0,#ff5000 100%);
-		z-index: -10;
+		z-index: 10;
 	}
 	footer{
 		background-color: #fff;

@@ -142,28 +142,29 @@
 				autoplayDisableOnInteraction : false,
 		});
 		
-		$.ajax({
-			url:'./link/data/getdoc.json',
-			type:'GET',
-			dataType:'json',
-			success:function(data){
-				console.log(data)
-				self.content = data
-			}
-		})
+//		$.ajax({
+//			url:'./link/data/getdoc.json',
+//			type:'GET',
+//			dataType:'json',
+//			success:function(data){
+//				console.log(data)
+//				self.content = data
+//			}
+//		})
 	}
 }
 </script>
 
 <style scoped>
 header {
-	width: 100%;
+	
 	color: #fff;
 	height: 0.38rem;
 	position: fixed;
 	top: 0;
 	display: flex;
 	padding: 3px 0;
+	z-index: 100;
 }
 
 header>div {

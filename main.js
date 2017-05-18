@@ -48,6 +48,11 @@ var goodsSearch = require('./component/goodsSearch.vue');
 var searchAll = require('./component/searchAll.vue');
 var searchTianmao = require('./component/searchTianmao.vue');
 var searchShop = require('./component/searchShop.vue');
+var liuyan = require('./component/liuyan.vue');
+var xiangce = require('./component/xiangce.vue');
+var my = require('./component/my.vue');
+var more = require('./component/more.vue');
+
 //var store = new.Vuex.Store({
 //	state:{
 //		idx:''
@@ -70,6 +75,19 @@ var router = new VueRouter({
 		children:[{
 			path:'index',
 			component:index
+		},{
+			path:'liuyan',
+			component:liuyan,
+			
+		},{
+			path:'xiangce',
+			component:xiangce
+		},{
+			path:'my',
+			component:my
+		},{
+			path:'more',
+			component:more
 		}]
 	},{
 		path:'/goodsSearch',
